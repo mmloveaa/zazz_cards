@@ -5,7 +5,23 @@ var db = require("mysql");
 var connection = require('../config/db');
 
 router.get('/', function (req, res, next) {
-	var query = "SELECT * FROM card";
+	var query = "SELECT CardID, CategoryName, Question, Answer FROM card c, category cat where c.categoryid=cat.categoryid";
+	// console.log("before format query: ",query)
+	query = db.format(query);
+	// console.log("after format  query: ",query)
+	connection.query(query, function (err, card) {
+		console.log("add card js")
+		if(err) {
+			res.status(400).send(err);
+			return;
+		}
+			res.send(card);
+	});
+
+});
+
+router.get('/:CardID', function (req, res, next) {
+	var query = "SELECT * FROM card where cardId =" + req.params.CardID;
 	query = db.format(query);
 
 	connection.query(query, function (err, card) {
@@ -18,7 +34,6 @@ router.get('/', function (req, res, next) {
 	});
 
 });
-
 
 router.post('/', function(req, res) {
 	console.log('req.body: ', req.body);
@@ -55,6 +70,21 @@ router.put('/', function(req, res) {
 
 	// SET is the values
 	var cardID=req.body.CardID;
+	connection.query('UPDATE card SET ? where CardID=' + cardID, req.body, function (err, result) {
+		if(err) {
+			res.status(400).send(err);
+			return;
+		}
+
+		res.send(result);
+	});
+});
+
+router.put('/:CardID', function(req, res) {
+	console.log('req.body: ', req.body);
+
+	// SET is the values
+	var cardID=req.params.CardID;
 	connection.query('UPDATE card SET ? where CardID=' + cardID, req.body, function (err, result) {
 		if(err) {
 			res.status(400).send(err);

@@ -7,17 +7,32 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-	<script src="/js/module.js"></script>
-	<script src="/js/services.js"></script>
-	<script src="/js/controllers.js"></script>
+	<script src="/javascripts/module.js"></script>
+	<script src="/javascripts/services.js"></script>
+	<script src="/javascripts/controllers.js"></script>
 </head>
 
 
 
 <body ng-app="zazzcardApp">
 	<div class="jumbotron">
+		<!-- Single button -->
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fa fa-bars"></i><span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		    <li><a href="#"></a></li>
+		    <li><a href="#">About</a></li>
+		    <li><a href="#">Help</a></li>
+		    <li role="separator" class="divider"></li>
+		    <li><a href="#">Edit Cards</a></li>
+		    <li><a href="#">Edit Categories</a></li>
+		  </ul>
+		</div>
   	<h1>ZazzCard</h1>	
 	</div>
 	<div class="container">

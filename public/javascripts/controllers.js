@@ -1,5 +1,5 @@
 'use strict';
 
-var app = angular.module('foodApp');
+var app = angular.module('zazzCardApp');
 
-app.controller('')
+// app.controller('')

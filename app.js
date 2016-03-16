@@ -25,7 +25,7 @@ app.use('/cards', cards);
 app.use('/categories', categories);
 
 app.get('/', function(req, res) {
-  var indexPath = path.join(__dirname, 'public/html/home.html');
+  var indexPath = path.join(__dirname, 'index.html');
   res.sendFile(indexPath);
 });
 

@@ -17,6 +17,24 @@
 
 
 <body ng-app="zazzCardApp">
+	<div class="jumbotron">
+		<!-- Single button -->
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fa fa-bars"></i><span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		    <li><a href="#"></a></li>
+		    <li><a ui-sref="home">Home</a></li>
+		    <!-- <li><a href="#">Help</a></li> -->
+		    <li role="separator" class="divider"></li>
+		    <li><a ui-sref="list">Card List</a></li>
+		    <li><a ui-sref="catLi">Category List</a></li>
+		  </ul>
+		</div>
+  	<h1>ZazzCard</h1>	
+</div>
+
 	<ui-view></ui-view>
 </body>
 </html>

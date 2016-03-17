@@ -4,12 +4,10 @@ var app = angular.module('zazzCardApp');
 
 app.controller('cardCtrl', function ($scope, CardFactory) {
 
-
 	if (!$scope.newCard) $scope.newCard = {}
 
 		CardFactory.fetch().then(function (res) {
 		$scope.cards = res.data;
-		// debugger;
 	}, function(err) {
 		console.log('err: ',err);
 	});
@@ -27,16 +25,11 @@ app.controller('cardCtrl', function ($scope, CardFactory) {
 		}, function(err) {
 			console.error('err: ', err);
 		});
-
 	};
 	
 
 	$scope.editCard = function(card) {
-		// var editedCard =
 		$scope.cardEd = angular.copy(card);
-		console.log("card: ", card);
-		console.log("scope cardEd: ", $scope.cardEd);
-		// debugger;
 	}
 
 	$scope.cancelEditing = function() {
@@ -51,7 +44,6 @@ app.controller('cardCtrl', function ($scope, CardFactory) {
 			$scope.cards.splice($scope.cards.findIndex(e => e.CardID === card.CardID), 1, angular.copy(card));
 			$scope.card = undefined;
 			$('#edit-card-modal').modal('hide');
-
 		});
 	}
 
@@ -59,7 +51,6 @@ app.controller('cardCtrl', function ($scope, CardFactory) {
 	$scope.removeCard = function(card) {
 		CardFactory.remove(card)
 		.then(function(card) {
-			//success!
 			CardFactory.fetch().then(function(res) {
 				$scope.cards = res.data;
 			}, function(err) {
@@ -70,6 +61,5 @@ app.controller('cardCtrl', function ($scope, CardFactory) {
 			console.error(err)
 		});
 	}
-
 })
 

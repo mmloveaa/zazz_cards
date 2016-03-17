@@ -26,3 +26,5 @@ a {
 #filterbox input{
 	text-align: right;
 }
+
+.carousel-caption { background-color:red;}

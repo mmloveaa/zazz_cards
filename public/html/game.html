@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Game</title>
-</head>
-<body>
-	
-</body>
-</html>
+<div>
+  <div style="height: 1305px; height: 800px;">
+    <uib-carousel active="active" interval="none" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides track by 
+      $index">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_March_2010-1.jpg" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{slide.CardID}}</h4>
+          <p>{{slide.Question}}</p>
+           <p>{{slide.Answer}}</p>
+
+           <!-- <button ng-click="debug()">jCLOICKKDFD</button> -->
+        </div>
+      </uib-slide>
+    </uib-carousel>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      
+      <div class="card">
+        <span class="question">{{currentQuestion}}</span>
+        <span class="answer">{{currentAnswer}}</span>
+        <button ng-click="nextCard()">Next Card</button>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+      <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="noWrapSlides">
+          Disable Slide Looping
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+      <br />Enter a negative number or 0 to stop the interval.
+    </div>
+  </div>
+</div>

@@ -21,7 +21,6 @@ app.controller('cardCtrl', function ($scope, CardFactory) {
 			newCardCopy.CardID = res.data.insertId;
 			$scope.cards.push(newCardCopy);
 			$scope.newCard = undefined;
-			// debugger;
 		}, function(err) {
 			console.error('err: ', err);
 		});
